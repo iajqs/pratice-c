@@ -54,7 +54,7 @@ void generateStar(int **map, int *star, int height, int weight){
 			if(map[i][j] == 0)
 				sum += 1;
 	// 随机生成空格下标 
-	index = random(sum);
+	index = random(sum) + 1;
 	// 选中index个空格作为星星的生成位置 
 	for(int i = 0; i < height; i++)
 		for(int j = 0; j < weight; j++){
@@ -80,7 +80,7 @@ int main(int argc, char** argv) {
 	/* 超参数 */
 	int height = 20;
 	int weight = 20;
-	int speed = 250;	// 运动速度，越小越快（其实是延时时长） 
+	int speed = 500;	// 运动速度，越小越快（其实是延时时长） 
 	/* 绘制初始地图 */
 	int **map;
 	map = (int**) new int*[height];
@@ -102,7 +102,6 @@ int main(int argc, char** argv) {
 		/* 初始化运动参数，纵轴方向，横轴方向，地图高度，地图宽度, 方向按键值, 运动速度（越小越快） */
 		initAction(0, 0, height, weight, 0, speed);
 		while(1){
-			
 			getAction();
 			int result = _move(&s, star);
 			
