@@ -42,6 +42,9 @@ int check_action(struct snake *s, int x, int y){
 	// 不能后退
 	if((x != 0 && direct_x != 0 && x != direct_x) || (y != 0 && direct_y != 0 && y != direct_y))
 		return 0;
+	// 一开始也不可以后退，这时候由于没有运动方向，所以没办法确定那个是正确的方向 
+	if(direct_x == 0 && direct_y == 0 && x == 1)
+		return 0; 
 	return 1;
 } 
 /* 死亡检查 */
@@ -104,9 +107,11 @@ void getAction(){
 int _move(struct snake *s, int* star, int x, int y){
 	/* 运动检查 */
 	if(!check_action(s, x, y)){
-//		return 0;
 		x = direct_x;
 		y = direct_y;
+	}
+	if(x == 0 && y == 0){
+		return 0;
 	}
 	/* 修改目前运动方向 */
 	direct_x = x;

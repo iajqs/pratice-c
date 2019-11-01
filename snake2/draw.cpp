@@ -35,7 +35,7 @@ void update(int x, int y, int sign){
 			cout << "¡õ"; 
 			break;
 	}
-
+	pos(0, 0);	
 }
 //	Ç½Ìå£¬ÉßÉí
 //   ¿Õ¡õ

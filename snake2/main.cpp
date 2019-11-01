@@ -78,9 +78,9 @@ int _move(struct snake *s, int *star){
 int main(int argc, char** argv) {
 
 	/* 超参数 */
-	int height = 20;
-	int weight = 20;
-	int speed = 500;	// 运动速度，越小越快（其实是延时时长） 
+	int height = 15;
+	int weight = 15;
+	int speed = 200;	// 运动速度，越小越快（其实是延时时长） 
 	/* 绘制初始地图 */
 	int **map;
 	map = (int**) new int*[height];
